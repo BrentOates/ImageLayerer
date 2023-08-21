@@ -9,7 +9,7 @@ public class AzureBlobClientFactory
 
     public AzureBlobClientFactory(IConfiguration configuration)
     {
-        connectionString = configuration.GetConnectionString("AzureStorage");
+        connectionString = configuration.GetConnectionString("Azure");
     }
 
     public BlobContainerClient GetBlobContainerClient(string containerName)
