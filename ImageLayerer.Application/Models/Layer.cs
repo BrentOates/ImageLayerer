@@ -6,5 +6,7 @@
 public class Layer
 {
     public int LayerIndex { get; set; }
+    public long PosX { get; set; }
+    public long PosY { get; set; }
     public ImageSource ImageSource { get; set; }
 }

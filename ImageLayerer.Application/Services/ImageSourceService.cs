@@ -26,7 +26,9 @@ public class ImageSourceService : IImageSourceService
 
     public async Task<ImageFile> GetImageAsync(ImageSource imageSource)
     {
-        if (!memoryCache.TryGetValue(imageSource.SourcePath, out ImageFile cachedImage))
+        var sourceHash = imageSource.CalculateHash();
+
+        if (imageSource.Refresh || !memoryCache.TryGetValue(sourceHash, out ImageFile cachedImage))
         {
             var imageAsBytes = await FetchFileAsync(imageSource);
 
@@ -49,7 +51,7 @@ public class ImageSourceService : IImageSourceService
             var cacheEntryOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromDays(14));
 
-            memoryCache.Set(imageSource.SourcePath, image, cacheEntryOptions);
+            memoryCache.Set(sourceHash, image, cacheEntryOptions);
             return image;
         }
 

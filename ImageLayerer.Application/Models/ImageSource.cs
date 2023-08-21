@@ -1,4 +1,6 @@
 ﻿using ImageLayerer.Application.Constants;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ImageLayerer.Application.Models;
 /// <summary>
@@ -9,4 +11,11 @@ public class ImageSource
     public SourceTypes SourceType { get; set; }
     public string SourcePath { get; set; }
     public bool Refresh { get; set; }
+
+    public string CalculateHash()
+    {
+        byte[] hashBytes = SHA256.HashData(Encoding.UTF8.GetBytes(SourceType + SourcePath));
+        string hashString = BitConverter.ToString(hashBytes).Replace("-", "");
+        return hashString;
+    }
 }
