@@ -1,3 +1,4 @@
+using ImageLayerer.Application.Factories;
 using ImageLayerer.Application.Interfaces;
 using ImageLayerer.Application.Services;
 using System.Text.Json.Serialization;
@@ -16,6 +17,10 @@ builder.Services.AddHttpClient();
 builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped<IImageSourceService, ImageSourceService>();
+builder.Services.AddScoped<ILocalFileService, LocalFileService>();
+builder.Services.AddScoped<IRemoteFileService, RemoteFileService>();
+builder.Services.AddScoped<IAzureService, AzureService>();
+builder.Services.AddScoped<AzureBlobClientFactory>();
 
 var app = builder.Build();
 
