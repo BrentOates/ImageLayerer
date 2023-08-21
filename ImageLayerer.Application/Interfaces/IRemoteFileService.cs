@@ -2,5 +2,5 @@
 
 public interface IRemoteFileService
 {
-    Task<byte[]> GetRemoteFileAsync(string filename);
+    Task<byte[]> GetRemoteFileAsync(string filename, CancellationToken cancellationToken);
 }

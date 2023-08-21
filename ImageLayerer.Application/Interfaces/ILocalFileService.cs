@@ -2,5 +2,5 @@
 
 public interface ILocalFileService
 {
-    Task<byte[]> GetLocalFileAsync(string path);
+    Task<byte[]> GetLocalFileAsync(string path, CancellationToken cancellationToken);
 }

@@ -15,9 +15,9 @@ public class ImageDrawingService : IImageDrawingService
         this.imageSourceService = imageSourceService ?? throw new ArgumentNullException(nameof(imageSourceService));
     }
 
-    public async Task<byte[]> GenerateImage(ProjectDefinition projectDefinition)
+    public async Task<byte[]> GenerateImage(ProjectDefinition projectDefinition, CancellationToken cancellationToken)
     {
-        var background = await imageSourceService.GetImageAsync(projectDefinition.Background);
+        var background = await imageSourceService.GetImageAsync(projectDefinition.Background, cancellationToken);
         Image backgroundImg = Image.Load(background.Content);
 
         backgroundImg.Mutate(x => x.DrawImage(backgroundImg, 1));
@@ -25,7 +25,7 @@ public class ImageDrawingService : IImageDrawingService
 
         foreach (var layer in layers)
         {
-            var layerImage = await imageSourceService.GetImageAsync(layer.ImageSource);
+            var layerImage = await imageSourceService.GetImageAsync(layer.ImageSource, cancellationToken);
             Image layerImg = Image.Load(layerImage.Content);
             layerImg.Mutate(x => x.Resize(layer.Width, layer.Height));
 
@@ -33,7 +33,7 @@ public class ImageDrawingService : IImageDrawingService
         }
 
         using MemoryStream memoryStream = new();
-        backgroundImg.Save(memoryStream, new PngEncoder());
+        await backgroundImg.SaveAsync(memoryStream, new PngEncoder(), cancellationToken);
         return memoryStream.ToArray();
     }
 }

@@ -2,5 +2,5 @@
 
 public interface IAzureService
 {
-    Task<byte[]> GetAzureFileAsync(string filename);
+    Task<byte[]> GetAzureFileAsync(string filename, CancellationToken cancellationToken);
 }

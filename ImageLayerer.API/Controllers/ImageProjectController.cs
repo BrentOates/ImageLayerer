@@ -19,17 +19,17 @@ namespace ImageLayerer.Controllers
 
         [HttpPost]
         [Route("GetImage")]
-        public async Task<FileResult> GetImage([FromBody] ImageSource source)
+        public async Task<FileResult> GetImage([FromBody] ImageSource source, CancellationToken cancellationToken = default)
         {
-            var image = await imageSourceService.GetImageAsync(source);
+            var image = await imageSourceService.GetImageAsync(source, cancellationToken);
             return File(image.Content, image.MimeType, image.FileName);
         }
 
         [HttpPost]
         [Route("GenerateImage")]
-        public async Task<FileResult> GenerateImage([FromBody] ProjectDefinition project)
+        public async Task<FileResult> GenerateImage([FromBody] ProjectDefinition project, CancellationToken cancellationToken = default)
         {
-            var image = await imageDrawingService.GenerateImage(project);
+            var image = await imageDrawingService.GenerateImage(project, cancellationToken);
             return File(image, "image/png");
         }
     }

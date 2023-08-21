@@ -24,13 +24,13 @@ public class ImageSourceService : IImageSourceService
         this.azureService = azureService ?? throw new ArgumentNullException(nameof(azureService));
     }
 
-    public async Task<ImageFile> GetImageAsync(ImageSource imageSource)
+    public async Task<ImageFile> GetImageAsync(ImageSource imageSource, CancellationToken cancellationToken)
     {
         var sourceHash = imageSource.CalculateHash();
 
         if (imageSource.Refresh || !memoryCache.TryGetValue(sourceHash, out ImageFile cachedImage))
         {
-            var imageAsBytes = await FetchFileAsync(imageSource);
+            var imageAsBytes = await FetchFileAsync(imageSource, cancellationToken);
 
             string filename = Path.GetFileName(imageSource.SourcePath);
 
@@ -58,13 +58,13 @@ public class ImageSourceService : IImageSourceService
         return cachedImage;
     }
 
-    public async Task<byte[]> FetchFileAsync(ImageSource imageSource)
+    public async Task<byte[]> FetchFileAsync(ImageSource imageSource, CancellationToken cancellationToken)
     {
         return imageSource.SourceType switch
         {
-            Constants.SourceTypes.Local => await localFileService.GetLocalFileAsync(imageSource.SourcePath),
-            Constants.SourceTypes.Remote => await remoteFileService.GetRemoteFileAsync(imageSource.SourcePath),
-            Constants.SourceTypes.Azure => await azureService.GetAzureFileAsync(imageSource.SourcePath),
+            Constants.SourceTypes.Local => await localFileService.GetLocalFileAsync(imageSource.SourcePath, cancellationToken),
+            Constants.SourceTypes.Remote => await remoteFileService.GetRemoteFileAsync(imageSource.SourcePath, cancellationToken),
+            Constants.SourceTypes.Azure => await azureService.GetAzureFileAsync(imageSource.SourcePath, cancellationToken),
             _ => throw new Exception(),
         };
     }
