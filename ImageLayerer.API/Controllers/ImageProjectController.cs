@@ -1,5 +1,5 @@
-using ImageLayerer.API.Models;
-using ImageLayerer.API.Services;
+using ImageLayerer.Application.Interfaces;
+using ImageLayerer.Application.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ImageLayerer.Controllers

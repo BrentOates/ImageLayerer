@@ -6,12 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.10.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.17.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <ProjectReference Include="..\ImageLayerer.Application\ImageLayerer.Application.csproj" />
   </ItemGroup>
 
 </Project>

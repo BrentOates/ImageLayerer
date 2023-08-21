@@ -1,4 +1,5 @@
-using ImageLayerer.API.Services;
+using ImageLayerer.Application.Interfaces;
+using ImageLayerer.Application.Services;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageLayerer.API", "ImageLayerer.API.csproj", "{DA34E7AB-8059-4585-A2FD-E47A67E9DB58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageLayerer.API", "ImageLayerer.API\ImageLayerer.API.csproj", "{A2B47621-3EFC-45E1-9B63-8523F107E95A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageLayerer.Application", "ImageLayerer.Application\ImageLayerer.Application.csproj", "{18B3BD67-CE2E-4285-BCF0-D6AD3C3DF9B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DA34E7AB-8059-4585-A2FD-E47A67E9DB58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA34E7AB-8059-4585-A2FD-E47A67E9DB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA34E7AB-8059-4585-A2FD-E47A67E9DB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA34E7AB-8059-4585-A2FD-E47A67E9DB58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2B47621-3EFC-45E1-9B63-8523F107E95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2B47621-3EFC-45E1-9B63-8523F107E95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2B47621-3EFC-45E1-9B63-8523F107E95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2B47621-3EFC-45E1-9B63-8523F107E95A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18B3BD67-CE2E-4285-BCF0-D6AD3C3DF9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B3BD67-CE2E-4285-BCF0-D6AD3C3DF9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B3BD67-CE2E-4285-BCF0-D6AD3C3DF9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B3BD67-CE2E-4285-BCF0-D6AD3C3DF9B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿namespace ImageLayerer.API.Models;
+﻿namespace ImageLayerer.Application.Models;
 
 public class ImageFile
 {

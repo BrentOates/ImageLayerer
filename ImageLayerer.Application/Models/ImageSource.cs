@@ -1,7 +1,6 @@
-﻿using ImageLayerer.API.Constants;
+﻿using ImageLayerer.Application.Constants;
 
-namespace ImageLayerer.API.Models;
-
+namespace ImageLayerer.Application.Models;
 /// <summary>
 /// Represents an image source, which may either be locally sourced or from a remote URL.
 /// </summary>

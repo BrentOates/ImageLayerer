@@ -1,4 +1,4 @@
-﻿namespace ImageLayerer.API.Models;
+﻿namespace ImageLayerer.Application.Models;
 
 /// <summary>
 /// Represents one image layer which will be overlayed onto the background and on top of lower indexed layers.

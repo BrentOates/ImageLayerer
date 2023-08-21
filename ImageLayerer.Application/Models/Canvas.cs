@@ -1,4 +1,4 @@
-﻿namespace ImageLayerer.API.Models;
+﻿namespace ImageLayerer.Application.Models;
 
 /// <summary>
 /// Represents the background canvas on which layers are added onto.

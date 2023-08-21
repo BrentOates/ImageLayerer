@@ -1,4 +1,4 @@
-﻿namespace ImageLayerer.API.Models;
+﻿namespace ImageLayerer.Application.Models;
 
 /// <summary>
 /// Represents the full definition provided to the image preparation service
