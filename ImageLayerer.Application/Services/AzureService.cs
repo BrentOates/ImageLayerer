@@ -12,7 +12,7 @@ public class AzureService : IAzureService
         this.azureBlobClientFactory = azureBlobClientFactory ?? throw new ArgumentNullException(nameof(azureBlobClientFactory));
     }
 
-    public async Task<byte[]> GetAzureFile(string filename)
+    public async Task<byte[]> GetAzureFileAsync(string filename)
     {
         var client = azureBlobClientFactory.GetBlobContainerClient("images");
         var blobClient = client.GetBlobClient(filename);
