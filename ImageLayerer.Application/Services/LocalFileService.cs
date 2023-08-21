@@ -1,6 +1,4 @@
 ﻿using ImageLayerer.Application.Interfaces;
-using ImageLayerer.Application.Models;
-using Microsoft.AspNetCore.StaticFiles;
 namespace ImageLayerer.Application.Services;
 
 public class LocalFileService : ILocalFileService
