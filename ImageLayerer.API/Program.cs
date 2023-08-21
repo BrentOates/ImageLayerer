@@ -20,6 +20,7 @@ builder.Services.AddScoped<IImageSourceService, ImageSourceService>();
 builder.Services.AddScoped<ILocalFileService, LocalFileService>();
 builder.Services.AddScoped<IRemoteFileService, RemoteFileService>();
 builder.Services.AddScoped<IAzureService, AzureService>();
+builder.Services.AddScoped<IImageDrawingService, ImageDrawingService>();
 builder.Services.AddScoped<AzureBlobClientFactory>();
 
 var app = builder.Build();

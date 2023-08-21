@@ -6,7 +6,6 @@
 public class ProjectDefinition
 {
     public string FileName { get; set; }
-    public string FileExtension { get; set; }
-    public Canvas Canvas { get; set; }
+    public ImageSource Background { get; set; }
     public IEnumerable<Layer> Layers { get; set; }
 }

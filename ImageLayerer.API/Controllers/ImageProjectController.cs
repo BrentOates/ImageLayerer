@@ -9,10 +9,12 @@ namespace ImageLayerer.Controllers
     public class ImageProjectController : ControllerBase
     {
         private readonly IImageSourceService imageSourceService;
+        private readonly IImageDrawingService imageDrawingService;
 
-        public ImageProjectController(IImageSourceService imageSourceService)
+        public ImageProjectController(IImageSourceService imageSourceService, IImageDrawingService imageDrawingService)
         {
             this.imageSourceService = imageSourceService;
+            this.imageDrawingService = imageDrawingService;
         }
 
         [HttpPost]
@@ -21,6 +23,14 @@ namespace ImageLayerer.Controllers
         {
             var image = await imageSourceService.GetImageAsync(source);
             return File(image.Content, image.MimeType, image.FileName);
+        }
+
+        [HttpPost]
+        [Route("GenerateImage")]
+        public async Task<FileResult> GenerateImage([FromBody] ProjectDefinition project)
+        {
+            var image = await imageDrawingService.GenerateImage(project);
+            return File(image, "image/png");
         }
     }
 }
